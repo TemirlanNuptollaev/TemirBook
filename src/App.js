@@ -22,7 +22,8 @@ function App() {
   }, []);
 
   return (
-    <AuthContext.Provider value={{
+    <div className="App">
+      <AuthContext.Provider value={{
       isAuth,
       setIsAuth,
       isLoading
@@ -33,6 +34,8 @@ function App() {
         <AppRouter/>
       </BrowserRouter>
     </AuthContext.Provider>
+    </div>
+    
 
     
     );

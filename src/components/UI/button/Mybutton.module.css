@@ -1,7 +1,7 @@
 .myBtn{
     box-sizing: border-box;
-    margin-right: 10PX;
-    min-width: 100px;
+    margin: 10px 0px;
+    width: 100%;
     padding: 10px;
     color: white;
     font-size: 14pt;

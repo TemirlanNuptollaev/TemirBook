@@ -68,51 +68,44 @@ function Posts() {
 
   
   return (
-    <div className="App">
-      
-      <Mybutton onClick={fetchPosts}>Get posts</Mybutton>
-      <Mybutton 
-        style={{marginTop: "30px", marginBottom: "30px"}} 
-        onClick={() => {setModal(true)}}>
-          Create post
-      </Mybutton>
-      
+    <>      
+      <PostFilter  
+        filter={filter}
+        setFilter={setFilter}>
+      </PostFilter>
+      <Mybutton      onClick={fetchPosts}       >Get posts</Mybutton>
+      <Mybutton onClick={() => {setModal(true)}}>Create post</Mybutton>
       <MyModal visible={modal} setVisible={setModal}>
         <PostForm create={createPost}/>
       </MyModal>
 
-    
-        <PostFilter  
-            filter={filter}
-            setFilter={setFilter}
-            />
-        <Myselect
-            value={limit}
-            onChange={value => setLimit(value)}
-            defaultValue="Count element on page"
-            options={[
-              {value: 5, name:'5'},
-              {value: 10, name:'10'},
-              {value: 25, name:'25'},
-              {value: -1, name:'All posts'},
-            ]}
-        />
-   
-
+      <Myselect
+        value={limit}
+        onChange={value => setLimit(value)}
+        defaultValue="Count element on page"
+        options={[
+          {value: 5, name:'5'},
+          {value: 10, name:'10'},
+          {value: 25, name:'25'},
+          {value: -1, name:'All posts'},
+        ]}></Myselect>
       <PostList 
-          remove={removePost} 
-          posts={sortedAndSearchedPosts} 
-          title="posttar"/>
-      <div ref={lastElement} style={{height:50, background: "transparent"}}></div>
-      {isPostLoading &&
-         <div style={{display:"flex" , justifyContent:"center", marginTop:"50px"}}><Loader/></div>
-       }
+        remove={removePost} 
+        posts={sortedAndSearchedPosts} 
+        title="">
+      </PostList>
+      <div 
+        ref={lastElement} 
+        style={{height:50, 
+        background: "transparent"}}>
+      </div>
+      { isPostLoading && <Loader></Loader> }
       <Pagination
-          page={page} 
-          totalPages={totalPages} 
-          changePage={changePage}
-      />
-    </div>
+        page={page} 
+        totalPages={totalPages} 
+        changePage={changePage}>
+      </Pagination>
+    </>
     
   );
 }

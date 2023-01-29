@@ -10,10 +10,11 @@ const PostItem = (props, remove) => {
   return (
     <div className="post">
       <div className="post__content">
-      <div className="post__title"><strong>{props.post.id}.{" " + props.post.title}</strong></div>
-      <div className="post__body">
-          {props.post.body}
-      </div>
+        <div className="post__title"><strong>{props.post.id}.{" " + props.post.title}</strong>
+        </div>
+        <div className="post__body">
+            {props.post.body}
+        </div>
       </div>  
       <div className="post__btns">
         <Mybutton onClick={() => router.push('/posts/'+ props.post.id )}>Open</Mybutton>

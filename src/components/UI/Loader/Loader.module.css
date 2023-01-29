@@ -2,7 +2,7 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    border: 15px dashed teal;
+    border: 15px dashed rgb(134, 150, 202);
     animation: rotate 1s infinite linear;
 }
 
